@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+</head>
+<body>
+    <a href="{% url 'blog:welcome' %}'">主页</a><br/>
+    <a href="{% url 'blog:write' %}'">写博客</a>
+    <form action="{% url 'blog:article_list' %}" method="POST">
+    {{ result }}
+        {% for f in article %}
+            ----------------------------------------------------------------------------------------------------------------------------------------------------
+            <br/>
+            标题：{{ f.article_title }}<br/>
+            作者：{{ f.author.username }}<br><br/>
+            内容：{{ f.article_content|slice:'100' }}<br/><br/>
+            创建于{{ f.article_create_time }}
+            修改于{{ f.article_update_time }}
+            <br/>
+            <a href="{% url 'blog:article_page' f.id %}" class="btn btn-primary">阅读本文</a>
+            <br/>
+            ----------------------------------------------------------------------------------------------------------------------------------------------------
+            <br/><br/>
+        {% endfor %}
+    </form>
+</body>
+</html>

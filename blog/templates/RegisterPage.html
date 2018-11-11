@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RegisterPage</title>
+</head>
+<body>
+    <a href="Welcome.html">主页</a><br/>
+    <form action="{% url 'blog:register' %}" method="POST">
+        {% csrf_token %}
+        {% for f in form %}
+            <p>{{ f.label }}: {{ f }}</p>
+        {% endfor %}
+        <input type="submit" value="提交">
+    {{ result }}
+    </form>
+</body>
+</html>

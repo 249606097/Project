@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CommentPage</title>
+</head>
+<body>
+    <a href="{% url 'blog:welcome' %}'">主页</a><br/>
+    <a href="{% url 'blog:article_list' %}">博客文章列表</a><br/>
+    <a href="{% url 'blog:article_page' id %}" class="btn btn-primary">返回</a>
+    <form action="{% url "blog:comment" id %}" method="POST">
+        {% csrf_token %}
+        {% for f in form %}
+            <p>{{ f.label }}：{{ f }}</p>
+            <input type="submit" value="提交">
+        {% endfor %}
+    </form>
+{{ result }}
+</body>
+</html>

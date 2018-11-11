@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+</head>
+<body>
+    欢迎用户 {{ username }}<br/>
+    <a href="{% url 'blog:article_list' %}">博客文章列表</a>
+    <form action="{% url 'blog:login' %}">
+        <input type="submit" value="登陆">
+    </form>
+    <form action="{% url 'blog:register' %}">
+        <input type="submit" value="注册">
+    </form>
+        <form action="{% url 'blog:change_password' %}">
+        <input type="submit" value="修改密码">
+    </form>
+        <form action="{% url 'blog:forget_password' %}">
+        <input type="submit" value="忘记密码">
+    </form>
+    <form action="{% url 'blog:logout' %}">
+        <input type="submit" value="注销">
+    </form>
+    {{ result }}
+</body>
+</html>

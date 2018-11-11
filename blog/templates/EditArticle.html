@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EditArticle</title>
+</head>
+<body>
+    <a href="{% url 'blog:welcome' %}'">主页</a><br/>
+    <a href="{% url 'blog:article_list' %}">博客文章列表</a><br/>
+    <a href="{% url 'blog:article_page' id %}" class="btn btn-primary">返回</a>
+    <form action="{% url 'blog:edit_article' id %}" method="POST">
+        {% csrf_token %}
+        标题：<input type="text" value="{{ form.article_title }}" name="new_title"><br/><br/>
+        内容：<textarea name="new_content">{{ form.article_content }}</textarea>
+            <input type="submit" value="提交">
+    </form>{{ result }}
+</body>
+</html>
